@@ -1,7 +1,9 @@
 import 'dart:io';
 
 void main() {
-  double grade = 50.6;
+  stdout.write("Enter mark: ");
+  var grade = stdin.readByteSync();
+ 
   if (grade >= 90) {
     print("A");
   } else if (grade >= 80 && grade < 90) {
