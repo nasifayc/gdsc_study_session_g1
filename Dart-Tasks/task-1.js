@@ -1,4 +1,4 @@
-// Simple JavaScript code Snnipet
+// Simple JavaScript Code Snnipet
 class HelloWorld{
   print(){
     console.log('Hello World');
