@@ -24,22 +24,16 @@ void main() {
 int findMaximum(List<int> numbers) {
   int largest = numbers[0];
   for (int number in numbers) {
-    if (number > largest) {
-      largest = number;
-    }
+    largest = number > largest ? number : largest;
   }
-
   return largest;
 }
 
 int findMinimum(List<int> numbers) {
   int smallest = numbers[0];
   for (int number in numbers) {
-    if (number < smallest) {
-      smallest = number;
-    }
+    smallest = number < smallest ? number : smallest;
   }
-
   return smallest;
 }
 
@@ -50,7 +44,5 @@ int calculateSum(List<int> numbers) {
 }
 
 double calculateAverage(List<int> numbers) {
-  int sum = 0;
-  numbers.forEach((number) => sum += number);
-  return sum / numbers.length;
+  return calculateSum(numbers) / numbers.length;
 }
