@@ -5,9 +5,9 @@ void main() {
   int size = int.parse(stdin.readLineSync()!);
 
   List<int> values = [];
-  for (int i = 0; i < size; ++i) {
+  for (int i = 0; i < size; ++i){
     stdout.write('Element ${i + 1}: ');
-    values.insert(i, int.parse(stdin.readLineSync()!));
+    values.add(int.parse(stdin.readLineSync()!));
   }
 
   stdout.write('List : ');
