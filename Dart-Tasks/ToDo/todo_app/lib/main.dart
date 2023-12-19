@@ -12,7 +12,7 @@ class Home extends StatelessWidget {
       home: Scaffold(
         body: Container(
           decoration: const BoxDecoration(
-            color: Color.fromARGB(255, 200, 77, 33),
+            color: Color.fromARGB(255, 215, 113, 76),
           ),
           child: const Homepage(),
         ),
@@ -31,27 +31,36 @@ class Homepage extends StatefulWidget {
 class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Image.asset(
-          'assets/images/stick-removebg-preview.png',
-          width: 483,
-          height: 483,
-        ),
-        const ElevatedButton(
-          onPressed: null,
-          style: ButtonStyle(
-            backgroundColor: MaterialStatePropertyAll(Colors.blue),
+    return Center(
+      child: Column(
+        children: [
+          Image.asset(
+            'assets/images/stick-removebg-preview.png',
+            width: 483,
+            height: 483,
           ),
-          child: Text(
-            'Get Started',
-            style: TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
+          const Padding(
+            padding: EdgeInsets.only(top: 80),
+            child: SizedBox(
+              width: 256,
+              height: 50,
+              child: ElevatedButton(
+                onPressed: null,
+                style: ButtonStyle(
+                  backgroundColor: MaterialStatePropertyAll(Colors.blue),
+                ),
+                child: Text(
+                  'Get Started',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
             ),
-          ),
-        )
-      ],
+          )
+        ],
+      ),
     );
   }
 }
