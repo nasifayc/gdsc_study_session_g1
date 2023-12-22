@@ -40,7 +40,7 @@ class _Iphone14BodyState extends State<Iphone14Body> {
           onPressed: null,
           icon: Icon(
             Icons.chevron_left,
-            size: 40,
+            size: 60,
             color: Color.fromARGB(255, 215, 113, 76),
           ),
         ),
@@ -49,10 +49,11 @@ class _Iphone14BodyState extends State<Iphone14Body> {
             onPressed: null,
             icon: Icon(
               Icons.more_vert,
-              size: 40,
+              size: 60,
               color: Color.fromARGB(255, 215, 113, 76),
             ),
           ),
+          SizedBox(width: 20)
         ],
       ),
       body: Column(
@@ -79,28 +80,28 @@ class _Iphone14BodyState extends State<Iphone14Body> {
                 isBold: true),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 30, left: 30, right: 20),
+            padding: const EdgeInsets.only(top: 40, left: 50, right: 50),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 StyledText(
                     text: 'Main task name',
-                    textFontSize: 14,
+                    textFontSize: 18,
                     textColor:
                         const Color.fromARGB(251, 255, 17, 0).withOpacity(0.5),
                     isBold: true),
                 const SizedBox(
-                  height: 6,
+                  height: 20,
                 ),
                 Container(
                   width: screenWidth,
-                  padding: const EdgeInsets.only(top: 13  , bottom: 13, left: 18),
+                  padding: const EdgeInsets.only(top: 20, bottom: 20, left: 22),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(10),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.grey.withOpacity(0.3),
+                        color: Colors.grey.withOpacity(0.5),
                         offset: const Offset(0, 2),
                         blurRadius: 4,
                       ),
@@ -108,31 +109,32 @@ class _Iphone14BodyState extends State<Iphone14Body> {
                   ),
                   child: const StyledText(
                       text: "UI/UX App Design",
-                      textFontSize: 14,
+                      textFontSize: 18,
                       textColor: Color.fromARGB(255, 116, 115, 115),
                       isBold: true),
                 ),
                 const SizedBox(
-                  height: 10,
+                  height: 20,
                 ),
                 StyledText(
                     text: 'Due date',
-                    textFontSize: 14,
+                    textFontSize: 18,
                     textColor:
                         const Color.fromARGB(251, 255, 17, 0).withOpacity(0.5),
                     isBold: true),
                 const SizedBox(
-                  height: 6,
+                  height: 20,
                 ),
                 Container(
                   width: screenWidth,
-                  padding: const EdgeInsets.only(top: 13, bottom: 13, left: 18),
+                  padding: const EdgeInsets.only(
+                      top: 20, bottom: 20, left: 22, right: 22),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(10),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.grey.withOpacity(0.3),
+                        color: Colors.grey.withOpacity(0.5),
                         offset: const Offset(0, 2),
                         blurRadius: 4,
                       ),
@@ -143,7 +145,7 @@ class _Iphone14BodyState extends State<Iphone14Body> {
                     children: [
                       const StyledText(
                           text: "April 29,2023 12:30 AM",
-                          textFontSize: 14,
+                          textFontSize: 18,
                           textColor: Color.fromARGB(255, 116, 115, 115),
                           isBold: true),
                       IconButton(
@@ -152,6 +154,7 @@ class _Iphone14BodyState extends State<Iphone14Body> {
                           Icons.calendar_month,
                           color: const Color.fromARGB(251, 255, 17, 0)
                               .withOpacity(0.5),
+                          size: 40,
                         ),
                       )
                     ],
@@ -162,7 +165,7 @@ class _Iphone14BodyState extends State<Iphone14Body> {
                 ),
                 StyledText(
                     text: 'Description',
-                    textFontSize: 14,
+                    textFontSize: 18,
                     textColor:
                         const Color.fromARGB(251, 255, 17, 0).withOpacity(0.5),
                     isBold: true),
@@ -171,13 +174,13 @@ class _Iphone14BodyState extends State<Iphone14Body> {
                 ),
                 Container(
                   width: screenWidth,
-                  padding: const EdgeInsets.only(top: 13, bottom: 13, left: 18),
+                  padding: const EdgeInsets.only(top: 20, bottom: 20, left: 22),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(10),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.grey.withOpacity(0.3),
+                        color: Colors.grey.withOpacity(0.5),
                         offset: const Offset(0, 2),
                         blurRadius: 4,
                       ),
@@ -186,7 +189,7 @@ class _Iphone14BodyState extends State<Iphone14Body> {
                   child: const StyledText(
                       text:
                           "First i have to animate the logo and later prototyping my design. it's very important",
-                      textFontSize: 12,
+                      textFontSize: 16,
                       textColor: Color.fromARGB(255, 116, 115, 115),
                       isBold: true),
                 ),
@@ -194,12 +197,12 @@ class _Iphone14BodyState extends State<Iphone14Body> {
             ),
           ),
           const SizedBox(
-            height: 50,
+            height: 100,
           ),
           const Center(
             child: SizedBox(
-              width: 120,
-              height: 30,
+              width: 200,
+              height: 50,
               child: ElevatedButton(
                 onPressed: null,
                 style: ButtonStyle(
@@ -209,7 +212,7 @@ class _Iphone14BodyState extends State<Iphone14Body> {
                 ),
                 child: StyledText(
                     text: 'Add task',
-                    textFontSize: 14,
+                    textFontSize: 18,
                     textColor: Colors.white,
                     isBold: true),
               ),

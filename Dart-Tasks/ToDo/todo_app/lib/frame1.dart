@@ -32,6 +32,7 @@ class Frame1Body extends StatefulWidget {
 class _Frame1BodyState extends State<Frame1Body> {
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -44,7 +45,7 @@ class _Frame1BodyState extends State<Frame1Body> {
           onPressed: null,
           icon: Icon(
             Icons.chevron_left,
-            size: 40,
+            size: 60,
             color: Color.fromARGB(255, 215, 113, 76),
           ),
         ),
@@ -53,7 +54,7 @@ class _Frame1BodyState extends State<Frame1Body> {
             onPressed: null,
             icon: Icon(
               Icons.more_vert,
-              size: 40,
+              size: 60,
               color: Color.fromARGB(255, 215, 113, 76),
             ),
           ),
@@ -62,16 +63,17 @@ class _Frame1BodyState extends State<Frame1Body> {
       body: Center(
         child: Column(
           children: <Widget>[
-            SizedBox(
-              width: 236,
-              height: 200,
+            Container(
+              width: screenWidth,
+              height: 300,
+              padding: const EdgeInsets.only(top: 10),
               child: Image.asset(
                 'assets/images/stickman.png',
               ),
             ),
             Container(
               alignment: Alignment.centerLeft,
-              padding: const EdgeInsets.only(left: 20),
+              padding: const EdgeInsets.only(left: 40),
               child: const StyledText(
                 text: 'Tasks List',
                 textFontSize: 18,
@@ -80,7 +82,7 @@ class _Frame1BodyState extends State<Frame1Body> {
               ),
             ),
             const Padding(
-              padding: EdgeInsets.all(10.0),
+              padding: EdgeInsets.all(30.0),
               child: Column(
                 children: [
                   StyledCard(
@@ -125,7 +127,7 @@ class _Frame1BodyState extends State<Frame1Body> {
                       Color.fromARGB(255, 215, 113, 76)),
                 ),
                 child: Text(
-                  'Get Started',
+                  'Create Task',
                   style: TextStyle(
                       color: Colors.white, fontWeight: FontWeight.bold),
                 ),
@@ -159,10 +161,10 @@ class StyledText extends StatelessWidget {
         softWrap: true,
         text,
         style: TextStyle(
-            fontSize: textFontSize,
-            fontWeight: isBold ? FontWeight.bold: FontWeight.normal,
-            color: textColor,
-            ),
+          fontSize: textFontSize,
+          fontWeight: isBold ? FontWeight.bold : FontWeight.normal,
+          color: textColor,
+        ),
       ),
     );
   }
@@ -182,7 +184,7 @@ class StyledCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 60,
+      padding: const EdgeInsets.only(left: 10, right: 0, top: 20, bottom: 30),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
@@ -198,17 +200,20 @@ class StyledCard extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           Text(taskId, style: const TextStyle(fontSize: 20)),
-          StyledText(text: taskDescription, textFontSize: 14,textColor: const Color.fromARGB(255, 124, 119, 119),isBold: true),
+          StyledText(
+              text: taskDescription,
+              textFontSize: 16,
+              textColor: const Color.fromARGB(255, 124, 119, 119),
+              isBold: true),
           Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              const SizedBox(height: 8),
               Text(deadline),
             ],
           ),
           Container(
-            width: 5,
-            height: 40,
+            width: 8,
+            height: 50,
             decoration: BoxDecoration(
                 color: taskColor, borderRadius: BorderRadius.circular(10)),
           )
