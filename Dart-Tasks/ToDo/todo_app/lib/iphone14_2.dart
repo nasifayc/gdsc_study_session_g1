@@ -1,23 +1,5 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(const MyApp());
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-  @override
-  Widget build(context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Task List',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
-        useMaterial3: true,
-      ),
-      home: const HomePage(title: 'Task Detail'),
-    );
-  }
-}
-
 class HomePage extends StatefulWidget {
   const HomePage({super.key, required this.title});
   final String title;
@@ -31,15 +13,22 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext contex) {
     final double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0,
-        title: Text(widget.title),
+        title: Text(
+          widget.title,
+          style: const TextStyle(color: Colors.black),
+        ),
         centerTitle: true,
-        leading: const IconButton(
-          onPressed: null,
-          icon: Icon(
+        backgroundColor: Theme.of(context).colorScheme.onPrimary,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(
             Icons.chevron_left,
-            size: 60,
+            size: 40,
             color: Color.fromARGB(255, 215, 113, 76),
           ),
         ),
@@ -48,7 +37,7 @@ class _HomePageState extends State<HomePage> {
             onPressed: null,
             icon: Icon(
               Icons.more_vert,
-              size: 60,
+              size: 40,
               color: Color.fromARGB(255, 215, 113, 76),
             ),
           ),
@@ -58,10 +47,10 @@ class _HomePageState extends State<HomePage> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Center(
-            child: Image.asset('assets/images/shopping-list 1.png', width: 307),
+            child: Image.asset('assets/images/shopping-list 1.png', width: 207),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 70, right: 70, top: 40),
+            padding: const EdgeInsets.only(left: 25, right: 25, top: 30),
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               const Text(
@@ -73,7 +62,7 @@ class _HomePageState extends State<HomePage> {
               ),
               Container(
                 width: screenWidth,
-                padding: const EdgeInsets.only(left: 20, top: 25, bottom: 25),
+                padding: const EdgeInsets.all(15),
                 decoration: const BoxDecoration(
                     color: Color.fromARGB(255, 240, 240, 240),
                     borderRadius: BorderRadius.all(Radius.circular(10))),
@@ -83,7 +72,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               const SizedBox(
-                height: 20,
+                height: 15,
               ),
               const Text(
                 'Description',
@@ -94,9 +83,8 @@ class _HomePageState extends State<HomePage> {
               ),
               Container(
                 width: screenWidth,
-                height: 150,
-                padding: const EdgeInsets.only(
-                    left: 20, top: 25, bottom: 25, right: 20),
+                height: 100,
+                padding: const EdgeInsets.all(15),
                 decoration: const BoxDecoration(
                     color: Color.fromARGB(255, 240, 240, 240),
                     borderRadius: BorderRadius.all(Radius.circular(10))),
@@ -106,7 +94,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               const SizedBox(
-                height: 20,
+                height: 10,
               ),
               const Text(
                 'Deadline',
@@ -117,8 +105,7 @@ class _HomePageState extends State<HomePage> {
               ),
               Container(
                 width: screenWidth,
-                padding: const EdgeInsets.only(
-                    left: 20, top: 25, bottom: 25, right: 20),
+                padding: const EdgeInsets.all(15),
                 decoration: const BoxDecoration(
                     color: Color.fromARGB(255, 240, 240, 240),
                     borderRadius: BorderRadius.all(Radius.circular(10))),

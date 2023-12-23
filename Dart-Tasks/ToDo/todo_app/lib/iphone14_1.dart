@@ -1,20 +1,5 @@
 import 'package:flutter/material.dart';
-
-void main() {
-  runApp(const IPhone14());
-}
-
-class IPhone14 extends StatelessWidget {
-  const IPhone14({super.key});
-
-  @override
-  Widget build(context) {
-    return const MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'iPhone14-1',
-        home: Iphone14Body(title: 'Create new task'));
-  }
-}
+import 'package:todo_app/iphone14_2.dart';
 
 class Iphone14Body extends StatefulWidget {
   const Iphone14Body({super.key, required this.title});
@@ -36,11 +21,13 @@ class _Iphone14BodyState extends State<Iphone14Body> {
         elevation: 0,
         centerTitle: true,
         backgroundColor: Theme.of(context).colorScheme.onPrimary,
-        leading: const IconButton(
-          onPressed: null,
-          icon: Icon(
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(
             Icons.chevron_left,
-            size: 60,
+            size: 40,
             color: Color.fromARGB(255, 215, 113, 76),
           ),
         ),
@@ -49,7 +36,7 @@ class _Iphone14BodyState extends State<Iphone14Body> {
             onPressed: null,
             icon: Icon(
               Icons.more_vert,
-              size: 60,
+              size: 40,
               color: Color.fromARGB(255, 215, 113, 76),
             ),
           ),
@@ -80,7 +67,7 @@ class _Iphone14BodyState extends State<Iphone14Body> {
                 isBold: true),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 40, left: 50, right: 50),
+            padding: const EdgeInsets.only(top: 40, left: 40, right: 40),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -154,7 +141,7 @@ class _Iphone14BodyState extends State<Iphone14Body> {
                           Icons.calendar_month,
                           color: const Color.fromARGB(251, 255, 17, 0)
                               .withOpacity(0.5),
-                          size: 40,
+                          size: 30,
                         ),
                       )
                     ],
@@ -199,18 +186,24 @@ class _Iphone14BodyState extends State<Iphone14Body> {
           const SizedBox(
             height: 100,
           ),
-          const Center(
+          Center(
             child: SizedBox(
               width: 200,
               height: 50,
               child: ElevatedButton(
-                onPressed: null,
-                style: ButtonStyle(
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            const HomePage(title: 'Task Detail')),
+                  );
+                },
+                style: const ButtonStyle(
                   shape: MaterialStatePropertyAll(StadiumBorder()),
                   backgroundColor: MaterialStatePropertyAll(
                       Color.fromARGB(255, 215, 113, 76)),
                 ),
-                child: StyledText(
+                child: const StyledText(
                     text: 'Add task',
                     textFontSize: 18,
                     textColor: Colors.white,

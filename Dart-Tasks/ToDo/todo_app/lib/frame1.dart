@@ -1,24 +1,5 @@
 import 'package:flutter/material.dart';
-
-void main() {
-  runApp(const Frame1());
-}
-
-class Frame1 extends StatelessWidget {
-  const Frame1({super.key});
-  @override
-  Widget build(context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Todo List',
-      theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(
-              seedColor: const Color.fromARGB(255, 215, 113, 76)),
-          useMaterial3: true),
-      home: const Frame1Body('Todo List'),
-    );
-  }
-}
+import 'package:todo_app/iphone14_1.dart';
 
 class Frame1Body extends StatefulWidget {
   const Frame1Body(this.title, {super.key});
@@ -34,18 +15,22 @@ class _Frame1BodyState extends State<Frame1Body> {
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Theme.of(context).colorScheme.onPrimary,
         title: Text(
           widget.title,
+          style: const TextStyle(color: Colors.black),
         ),
         centerTitle: true,
-        leading: const IconButton(
-          onPressed: null,
-          icon: Icon(
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(
             Icons.chevron_left,
-            size: 60,
+            size: 40,
             color: Color.fromARGB(255, 215, 113, 76),
           ),
         ),
@@ -54,87 +39,95 @@ class _Frame1BodyState extends State<Frame1Body> {
             onPressed: null,
             icon: Icon(
               Icons.more_vert,
-              size: 60,
+              size: 40,
               color: Color.fromARGB(255, 215, 113, 76),
             ),
           ),
         ],
       ),
-      body: Center(
-        child: Column(
-          children: <Widget>[
-            Container(
+      body: Column(
+        children: <Widget>[
+          Center(
+            child: Container(
               width: screenWidth,
-              height: 300,
+              height: 220,
               padding: const EdgeInsets.only(top: 10),
               child: Image.asset(
                 'assets/images/stickman.png',
               ),
             ),
-            Container(
-              alignment: Alignment.centerLeft,
-              padding: const EdgeInsets.only(left: 40),
-              child: const StyledText(
-                text: 'Tasks List',
-                textFontSize: 18,
-                textColor: Color.fromARGB(255, 124, 119, 119),
-                isBold: true,
-              ),
+          ),
+          Container(
+            alignment: Alignment.centerLeft,
+            padding: const EdgeInsets.only(left: 40),
+            child: const StyledText(
+              text: 'Tasks List',
+              textFontSize: 18,
+              textColor: Color.fromARGB(255, 124, 119, 119),
+              isBold: true,
             ),
-            const Padding(
-              padding: EdgeInsets.all(30.0),
-              child: Column(
-                children: [
-                  StyledCard(
-                      taskId: 'U',
-                      taskDescription: 'UI/UX App Design',
-                      deadline: 'April29,2023',
-                      taskColor: Colors.yellow),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  StyledCard(
-                      taskId: 'U',
-                      taskDescription: 'UI/UX App Design',
-                      deadline: 'April29,2023',
-                      taskColor: Colors.green),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  StyledCard(
-                      taskId: 'V',
-                      taskDescription: 'UI/UX App Design',
-                      deadline: 'April29,2023',
-                      taskColor: Colors.red),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  StyledCard(
-                      taskId: 'F',
-                      taskDescription: 'UI/UX App Design',
-                      deadline: 'April29,2025',
-                      taskColor: Colors.deepPurple),
-                ],
-              ),
-            ),
-            const SizedBox(
-              height: 46,
-              width: 219,
-              child: ElevatedButton(
-                onPressed: null,
-                style: ButtonStyle(
-                  backgroundColor: MaterialStatePropertyAll(
-                      Color.fromARGB(255, 215, 113, 76)),
+          ),
+          const Padding(
+            padding:
+                EdgeInsets.only(top: 10.0, left: 15, right: 15, bottom: 20),
+            child: Column(
+              children: [
+                StyledCard(
+                    taskId: 'U',
+                    taskDescription: 'UI/UX App Design',
+                    deadline: 'April29,2023',
+                    taskColor: Colors.yellow),
+                SizedBox(
+                  height: 10,
                 ),
-                child: Text(
-                  'Create Task',
-                  style: TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold),
+                StyledCard(
+                    taskId: 'U',
+                    taskDescription: 'UI/UX App Design',
+                    deadline: 'April29,2023',
+                    taskColor: Colors.green),
+                SizedBox(
+                  height: 10,
                 ),
+                StyledCard(
+                    taskId: 'V',
+                    taskDescription: 'UI/UX App Design',
+                    deadline: 'April29,2023',
+                    taskColor: Colors.red),
+                SizedBox(
+                  height: 10,
+                ),
+                StyledCard(
+                    taskId: 'F',
+                    taskDescription: 'UI/UX App Design',
+                    deadline: 'April29,2025',
+                    taskColor: Colors.deepPurple),
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 46,
+            width: 219,
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) =>
+                        const Iphone14Body(title: 'Create new task'),
+                  ),
+                );
+              },
+              style: const ButtonStyle(
+                backgroundColor:
+                    MaterialStatePropertyAll(Color.fromARGB(255, 215, 113, 76)),
+              ),
+              child: const Text(
+                'Create Task',
+                style:
+                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -184,7 +177,7 @@ class StyledCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.only(left: 10, right: 0, top: 20, bottom: 30),
+      padding: const EdgeInsets.only(left: 8, right: 0, top: 6, bottom: 10),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
