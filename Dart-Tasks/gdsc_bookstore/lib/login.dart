@@ -4,8 +4,6 @@ import 'bookStore.dart';
 import 'package:flutter/material.dart';
 import 'styledButton.dart';
 
-
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -115,7 +113,7 @@ class _LoginPageState extends State<LoginPage> {
             InkWell(
               onTap: () {
                 if (_formkey.currentState!.validate()) {
-                  if (_emailController.text == "nasifay" &&
+                  if (_emailController.text == "gdsc" &&
                       _passwordController.text == "1234") {
                     Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) => const BookStore()));
