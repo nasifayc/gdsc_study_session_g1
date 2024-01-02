@@ -34,10 +34,17 @@ class _Frame1BodyState extends State<Frame1Body> {
             color: Color.fromARGB(255, 215, 113, 76),
           ),
         ),
-        actions: const [
+        actions: [
           IconButton(
-            onPressed: null,
-            icon: Icon(
+            onPressed: () {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text('Processing Request'),
+                  backgroundColor: Colors.blue,
+                ),
+              );
+            },
+            icon: const Icon(
               Icons.more_vert,
               size: 40,
               color: Color.fromARGB(255, 215, 113, 76),
@@ -45,89 +52,91 @@ class _Frame1BodyState extends State<Frame1Body> {
           ),
         ],
       ),
-      body: Column(
-        children: <Widget>[
-          Center(
-            child: Container(
-              width: screenWidth,
-              height: 220,
-              padding: const EdgeInsets.only(top: 10),
-              child: Image.asset(
-                'assets/images/stickman.png',
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            Center(
+              child: Container(
+                width: screenWidth,
+                height: 220,
+                padding: const EdgeInsets.only(top: 10),
+                child: Image.asset(
+                  'assets/images/stickman.png',
+                ),
               ),
             ),
-          ),
-          Container(
-            alignment: Alignment.centerLeft,
-            padding: const EdgeInsets.only(left: 40),
-            child: const StyledText(
-              text: 'Tasks List',
-              textFontSize: 18,
-              textColor: Color.fromARGB(255, 124, 119, 119),
-              isBold: true,
+            Container(
+              alignment: Alignment.centerLeft,
+              padding: const EdgeInsets.only(left: 40),
+              child: const StyledText(
+                text: 'Tasks List',
+                textFontSize: 18,
+                textColor: Color.fromARGB(255, 124, 119, 119),
+                isBold: true,
+              ),
             ),
-          ),
-          const Padding(
-            padding:
-                EdgeInsets.only(top: 10.0, left: 15, right: 15, bottom: 20),
-            child: Column(
-              children: [
-                StyledCard(
-                    taskId: 'U',
-                    taskDescription: 'UI/UX App Design',
-                    deadline: 'April29,2023',
-                    taskColor: Colors.yellow),
-                SizedBox(
-                  height: 10,
-                ),
-                StyledCard(
-                    taskId: 'U',
-                    taskDescription: 'UI/UX App Design',
-                    deadline: 'April29,2023',
-                    taskColor: Colors.green),
-                SizedBox(
-                  height: 10,
-                ),
-                StyledCard(
-                    taskId: 'V',
-                    taskDescription: 'UI/UX App Design',
-                    deadline: 'April29,2023',
-                    taskColor: Colors.red),
-                SizedBox(
-                  height: 10,
-                ),
-                StyledCard(
-                    taskId: 'F',
-                    taskDescription: 'UI/UX App Design',
-                    deadline: 'April29,2025',
-                    taskColor: Colors.deepPurple),
-              ],
-            ),
-          ),
-          SizedBox(
-            height: 46,
-            width: 219,
-            child: ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) =>
-                        const Iphone14Body(title: 'Create new task'),
+            const Padding(
+              padding:
+                  EdgeInsets.only(top: 10.0, left: 15, right: 15, bottom: 20),
+              child: Column(
+                children: [
+                  StyledCard(
+                      taskId: 'U',
+                      taskDescription: 'UI/UX App Design',
+                      deadline: 'April29,2023',
+                      taskColor: Colors.yellow),
+                  SizedBox(
+                    height: 10,
                   ),
-                );
-              },
-              style: const ButtonStyle(
-                backgroundColor:
-                    MaterialStatePropertyAll(Color.fromARGB(255, 215, 113, 76)),
-              ),
-              child: const Text(
-                'Create Task',
-                style:
-                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                  StyledCard(
+                      taskId: 'U',
+                      taskDescription: 'UI/UX App Design',
+                      deadline: 'April29,2023',
+                      taskColor: Colors.green),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  StyledCard(
+                      taskId: 'V',
+                      taskDescription: 'UI/UX App Design',
+                      deadline: 'April29,2023',
+                      taskColor: Colors.red),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  StyledCard(
+                      taskId: 'F',
+                      taskDescription: 'UI/UX App Design',
+                      deadline: 'April29,2025',
+                      taskColor: Colors.deepPurple),
+                ],
               ),
             ),
-          ),
-        ],
+            SizedBox(
+              height: 46,
+              width: 219,
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          const Iphone14Body(title: 'Create new task'),
+                    ),
+                  );
+                },
+                style: const ButtonStyle(
+                  backgroundColor: MaterialStatePropertyAll(
+                      Color.fromARGB(255, 215, 113, 76)),
+                ),
+                child: const Text(
+                  'Create Task',
+                  style: TextStyle(
+                      color: Colors.white, fontWeight: FontWeight.bold),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -140,6 +149,7 @@ class StyledText extends StatelessWidget {
       required this.textFontSize,
       required this.textColor,
       required this.isBold});
+
 
   final String text;
   final double textFontSize;
@@ -202,7 +212,7 @@ class StyledCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Text(deadline),
-            ],
+            ], 
           ),
           Container(
             width: 8,

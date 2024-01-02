@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key, required this.title});
+  const HomePage({super.key, required this.title, required this.mainTask, required this.dueDate,required this.description});
   final String title;
+  final String mainTask;
+  final String dueDate;
+  final String description;
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -66,9 +69,9 @@ class _HomePageState extends State<HomePage> {
                 decoration: const BoxDecoration(
                     color: Color.fromARGB(255, 240, 240, 240),
                     borderRadius: BorderRadius.all(Radius.circular(10))),
-                child: const Text(
-                  'UI/UX App Design',
-                  style: TextStyle(fontSize: 20),
+                child: Text(
+                  widget.mainTask,
+                  style: const TextStyle(fontSize: 20),
                 ),
               ),
               const SizedBox(
@@ -88,9 +91,9 @@ class _HomePageState extends State<HomePage> {
                 decoration: const BoxDecoration(
                     color: Color.fromARGB(255, 240, 240, 240),
                     borderRadius: BorderRadius.all(Radius.circular(10))),
-                child: const Text(
-                  'First I have to animate the logo and prototyping my design. it\'s very important',
-                  style: TextStyle(fontSize: 16),
+                child: Text(
+                  widget.description,
+                  style: const TextStyle(fontSize: 16),
                 ),
               ),
               const SizedBox(
@@ -109,9 +112,9 @@ class _HomePageState extends State<HomePage> {
                 decoration: const BoxDecoration(
                     color: Color.fromARGB(255, 240, 240, 240),
                     borderRadius: BorderRadius.all(Radius.circular(10))),
-                child: const Text(
-                  'April 29, 2023',
-                  style: TextStyle(fontSize: 14),
+                child: Text(
+                  widget.dueDate,
+                  style: const TextStyle(fontSize: 14),
                 ),
               ),
             ]),

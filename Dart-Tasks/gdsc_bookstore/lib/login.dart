@@ -2,7 +2,7 @@
 
 import 'bookStore.dart';
 import 'package:flutter/material.dart';
-import 'styledButton.dart';
+import 'widgets/styledButton.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

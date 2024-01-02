@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'categories.dart';
-import 'horizontalscrollView.dart';
+import 'widgets/categories.dart';
+import 'widgets/horizontalscrollView.dart';
 
 class BookStore extends StatefulWidget {
   const BookStore({super.key});
@@ -184,10 +184,10 @@ class _BookStoreState extends State<BookStore> {
                 const SizedBox(height: 20),
                 const Text(
                   'Categories',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(
-                  height: 60,
+                  height: 150,
                   child: Categories(),
                 ),
 

@@ -18,15 +18,19 @@ class _CategoriesState extends State<Categories> {
   ];
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      scrollDirection: Axis.horizontal,
-      itemCount: 5,
-      itemBuilder: (context, index) {
-        return Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: StyledButton(name: text[index], icon: icons[index]),
-        );
-      },
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 10.0),
+      child: Wrap(
+        spacing: 15.0,
+        runSpacing: 10.0,
+        children: [
+          StyledButton(name: text[0], icon: icons[0]),
+          StyledButton(name: text[1], icon: icons[1]),
+          StyledButton(name: text[2], icon: icons[2]),
+          StyledButton(name: text[3], icon: icons[3]),
+          StyledButton(name: text[4], icon: icons[4]),
+        ],
+      ),
     );
   }
 }
@@ -39,8 +43,8 @@ class StyledButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 150,
-      padding: const EdgeInsets.only(left: 10, right: 20),
+      width: 160,
+      padding: const EdgeInsets.only(left: 10, right: 20, top: 10, bottom: 10),
       decoration: BoxDecoration(
           borderRadius: const BorderRadius.all(Radius.circular(10)),
           color: Colors.grey[200]),

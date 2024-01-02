@@ -55,10 +55,10 @@ class _HomepageState extends State<Homepage> {
                     ),
                   );
                 },
-                style: ButtonStyle(
+                style: const ButtonStyle(
                   backgroundColor: MaterialStatePropertyAll(Colors.blue),
                 ),
-                child: Text(
+                child: const Text(
                   'Get Started',
                   style: TextStyle(
                       color: Colors.white,

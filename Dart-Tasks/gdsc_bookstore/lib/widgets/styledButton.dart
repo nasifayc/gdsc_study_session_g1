@@ -12,7 +12,7 @@ class _ButtonState extends State<Button> {
   Widget build(BuildContext context) {
     return Container(
       height: 50,
-      width: 300,
+      width: 200,
       decoration: const BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(25)),
         color: Color.fromARGB(255, 151, 56, 30),
