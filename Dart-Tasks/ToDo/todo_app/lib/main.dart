@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app/frame1.dart';
+import 'package:provider/provider.dart';
+import 'package:todo_app/pages/frame1.dart';
+
+import 'Provider/taskModel.dart';
 
 void main() => runApp(const Home());
 
@@ -8,15 +11,18 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Homepage',
-      home: Scaffold(
-        body: Container(
-          decoration: const BoxDecoration(
-            color: Color.fromARGB(255, 215, 113, 76),
+    return MultiProvider(
+      providers: [ChangeNotifierProvider(create: ((context) => TaskCRUD()))],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Homepage',
+        home: Scaffold(
+          body: Container(
+            decoration: const BoxDecoration(
+              color: Color.fromARGB(255, 215, 113, 76),
+            ),
+            child: const Homepage(),
           ),
-          child: const Homepage(),
         ),
       ),
     );
