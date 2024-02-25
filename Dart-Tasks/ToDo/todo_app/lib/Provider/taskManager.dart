@@ -4,7 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:todo_app/Provider/task.dart';
 
 class TaskManager extends ChangeNotifier {
-  static const _prefsKey = 'tasks';
+  static const _taskKey = 'tasks';
 
   late List<Task> tasks = [];
 
@@ -35,7 +35,7 @@ class TaskManager extends ChangeNotifier {
     } else {
       final List<String> taskJsonList =
           tasks.map((task) => jsonEncode(task.toJson())).toList();
-      await prefs.setStringList(_prefsKey, taskJsonList);
+      await prefs.setStringList(_taskKey, taskJsonList);
     }
     notifyListeners();
   }
@@ -43,7 +43,7 @@ class TaskManager extends ChangeNotifier {
 // Load Data From Shared_Preferences Localstorage
   Future<void> loadTask() async {
     final prefs = await SharedPreferences.getInstance();
-    final List<String>? taskJsonList = prefs.getStringList(_prefsKey);
+    final List<String>? taskJsonList = prefs.getStringList(_taskKey);
     if (taskJsonList == null) {
       tasks = [];
     } else {
