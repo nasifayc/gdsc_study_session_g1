@@ -1,3 +1,4 @@
+// Task Model Class
 class Task {
   final String title;
   final String description;
@@ -23,10 +24,9 @@ class Task {
   // Deserialize JSON map to Task object
   factory Task.fromJson(Map<String, dynamic> json) {
     return Task(
-      title: json['title'],
-      description: json['description'],
-      date: json['date'],
-      isDone: json['isDone']
-    );
+        title: json['title'],
+        description: json['description'],
+        date: json['date'],
+        isDone: json['isDone']);
   }
 }
