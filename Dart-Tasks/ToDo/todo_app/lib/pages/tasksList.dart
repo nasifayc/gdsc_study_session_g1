@@ -5,6 +5,7 @@ import 'package:todo_app/widgets/widgets.dart';
 import 'createTask.dart';
 import 'taskDetail.dart';
 
+// This page display the list of task created so far
 class TaskListPage extends StatefulWidget {
   const TaskListPage(this.title, {super.key});
 

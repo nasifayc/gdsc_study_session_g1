@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:todo_app/Provider/task.dart';
 import 'package:todo_app/Provider/taskManager.dart';
 
+// Detail description of or task
 class TaskDetail extends StatefulWidget {
   const TaskDetail(
       {super.key, this.title = 'Task Details', required this.task});

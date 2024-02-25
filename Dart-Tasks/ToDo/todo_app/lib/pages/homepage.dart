@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/pages/tasksList.dart';
 
+// Landing page
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
 

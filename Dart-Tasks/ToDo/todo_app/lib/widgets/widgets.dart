@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:todo_app/Provider/task.dart';
 import 'package:todo_app/Provider/taskManager.dart';
 
+// Reusable widets
 class StyledText extends StatelessWidget {
   const StyledText(
       {super.key,

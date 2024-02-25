@@ -204,7 +204,7 @@ class _TaskCreatorState extends State<TaskCreator> {
                           date:
                               '(yy/dd/mm) --- ${selectDate.year}/${selectDate.day}/${selectDate.month}',
                           isDone: false);
-
+                      // Adding the new task and add to our task list
                       Provider.of<TaskManager>(context, listen: false)
                           .addTask(newTask);
                       _mainTask.clear();

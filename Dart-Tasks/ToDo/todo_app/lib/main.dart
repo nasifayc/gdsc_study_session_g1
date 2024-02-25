@@ -14,7 +14,7 @@ class Home extends StatelessWidget {
       providers: [ChangeNotifierProvider(create: ((context) => TaskManager()))],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Homepage',
+        title: 'Todo App',
         theme: ThemeData(
           primaryColor: const Color.fromARGB(255, 215, 113, 76),
         ),
